@@ -393,7 +393,8 @@
         c.style.setProperty("--px", `${(tx * 10 * d).toFixed(1)}px`);
         c.style.setProperty("--py", `${(ty * 10 * d).toFixed(1)}px`);
       });
-      portrait.style.transform = `perspective(900px) rotateY(${(tx * 6).toFixed(2)}deg) rotateX(${(-ty * 6).toFixed(2)}deg) rotate(-3deg)`;
+      // Tilt is rendered flat (no shared 3D space), so it can never cut through the card behind.
+      portrait.style.transform = `perspective(900px) rotateY(${(tx * 5).toFixed(2)}deg) rotateX(${(-ty * 5).toFixed(2)}deg) rotate(-3deg)`;
     };
     hero.addEventListener("pointermove", (e) => {
       const r = stage.getBoundingClientRect();

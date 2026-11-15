@@ -232,9 +232,9 @@ main { padding: 0 var(--gutter); }
 
 /* portrait stage */
 .hero__visual { margin: 0; justify-self: center; width: 100%; max-width: 400px; }
-.stage { position: relative; aspect-ratio: 1; transform-style: preserve-3d; }
+.stage { position: relative; aspect-ratio: 1; isolation: isolate; }
 .stage__back {
-  position: absolute; inset: 0; border-radius: 34px;
+  position: absolute; inset: 0; z-index: 0; border-radius: 34px;
   background: linear-gradient(140deg, var(--accent-2), var(--accent) 70%);
   transform: rotate(7deg) translate(4%, 3%);
   opacity: .9;
@@ -247,7 +247,7 @@ main { padding: 0 var(--gutter); }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .portrait {
-  position: relative; overflow: hidden; border-radius: 30px;
+  position: relative; z-index: 1; overflow: hidden; border-radius: 30px;
   transform: rotate(-3deg);
   border: 6px solid rgba(255, 255, 255, .85);
   box-shadow: 0 50px 80px -40px rgba(20, 40, 50, .7), 0 2px 10px rgba(20, 40, 50, .08);
