@@ -46,13 +46,17 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top">
-      <div class="hero__panel glass reveal">
+      <div class="hero__grid">
         <div class="hero__copy">
-          <p class="status"><span class="status__dot"></span>Open to internships &amp; junior roles</p>
-          <p class="eyebrow">BS Information Technology · Web Systems Technology</p>
-          <h1 class="hero__title">I build practical web systems, <em>from the database to the interface.</em></h1>
-          <p class="hero__lede">I'm Ernest, a fourth-year IT student at Nueva Ecija University of Science and Technology, graduating in 2027. I write PHP and SQL and design clean, simple front-ends.</p>
-          <div class="hero__actions">
+          <p class="eyebrow hero-in" style="--d:0"><span class="eyebrow__line"></span>Hi, I'm Ernest · BSIT, Web Systems Technology</p>
+          <h1 class="hero__title" aria-label="I build practical web systems, from the database to the interface.">
+            <span class="w" style="--d:1">I</span> <span class="w" style="--d:2">build</span> <span class="w" style="--d:3">practical</span>
+            <span class="w" style="--d:4">web</span> <span class="w" style="--d:5">systems,</span>
+            <em><span class="w" style="--d:6">from</span> <span class="w" style="--d:7">the</span> <span class="w" style="--d:8">database</span>
+            <span class="w" style="--d:9">to</span> <span class="w" style="--d:10">the</span> <span class="w w--mark" style="--d:11">interface.</span></em>
+          </h1>
+          <p class="hero__lede hero-in" style="--d:12">A fourth-year IT student at Nueva Ecija University of Science and Technology, graduating in 2027. I write PHP and SQL and design clean, simple front-ends.</p>
+          <div class="hero__actions hero-in" style="--d:13">
             <a class="btn btn--primary" href="#work">See my work</a>
             <a class="btn btn--ghost" href="mailto:montesernestwin21@gmail.com">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -63,21 +67,34 @@
               GitHub
             </a>
           </div>
+          <dl class="facts hero-in" style="--d:14">
+            <div class="fact"><dt>Year</dt><dd>4th-year BSIT</dd></div>
+            <div class="fact"><dt>Focus</dt><dd>PHP · MySQL</dd></div>
+            <div class="fact"><dt>Training</dt><dd>7 IT certificates</dd></div>
+          </dl>
         </div>
-        <figure class="hero__portrait">
-          <div class="portrait">
-            <img src="assets/img/ernest-montes.jpg" alt="Portrait of Ernest Win Montes" width="640" height="640">
+
+        <figure class="hero__visual hero-in" style="--d:4" aria-label="Portrait of Ernest Win Montes">
+          <div class="stage" id="stage">
+            <span class="stage__ring" aria-hidden="true"></span>
+            <span class="stage__back" aria-hidden="true"></span>
+            <div class="portrait">
+              <img src="assets/img/ernest-montes.jpg" alt="Portrait of Ernest Win Montes" width="640" height="640">
+            </div>
+            <p class="chip-float chip-float--status glass" data-depth="1.6"><span class="status__dot"></span>Open to internships</p>
+            <p class="chip-float chip-float--cert glass" data-depth="1.1">
+              <span class="chip-float__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.4 7.2 17.9l.9-5.4L4.2 8.7l5.4-.8z" fill="currentColor"/></svg>
+              </span>
+              <span><strong>IT Specialist</strong><small>HTML &amp; CSS · Certiport</small></span>
+            </p>
+            <p class="chip-float chip-float--code glass mono" data-depth="2.2" aria-hidden="true">&lt;?php echo "hello"; ?&gt;</p>
           </div>
           <figcaption class="mono">Ernest Win I. Montes · NEUST '27</figcaption>
         </figure>
       </div>
 
-      <dl class="facts reveal">
-        <div class="fact glass"><dt>Year</dt><dd>4th-year BSIT</dd></div>
-        <div class="fact glass"><dt>Focus</dt><dd>PHP · MySQL · Laravel</dd></div>
-        <div class="fact glass"><dt>Certified</dt><dd>IT Specialist: HTML &amp; CSS</dd></div>
-        <div class="fact glass"><dt>Training</dt><dd>7 IT certificates</dd></div>
-      </dl>
+      <a class="scroll-cue hero-in" style="--d:15" href="#work"><span>Scroll</span><i aria-hidden="true"></i></a>
     </section>
 
     <!-- WORK -->
