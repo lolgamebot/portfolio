@@ -378,33 +378,6 @@
     });
   }
 
-  /* ---------- Hero parallax (mouse only) ---------- */
-  function initHeroParallax() {
-    const hero = $(".hero");
-    const stage = $("#stage");
-    if (!hero || !stage || reduceMotion || !window.matchMedia("(pointer: fine)").matches) return;
-    const chips = $$("[data-depth]", stage);
-    const portrait = $(".portrait", stage);
-    let raf = 0, tx = 0, ty = 0;
-    const apply = () => {
-      raf = 0;
-      chips.forEach((c) => {
-        const d = parseFloat(c.dataset.depth) || 1;
-        c.style.setProperty("--px", `${(tx * 10 * d).toFixed(1)}px`);
-        c.style.setProperty("--py", `${(ty * 10 * d).toFixed(1)}px`);
-      });
-      // Tilt is rendered flat (no shared 3D space), so it can never cut through the card behind.
-      portrait.style.transform = `perspective(900px) rotateY(${(tx * 5).toFixed(2)}deg) rotateX(${(-ty * 5).toFixed(2)}deg) rotate(-3deg)`;
-    };
-    hero.addEventListener("pointermove", (e) => {
-      const r = stage.getBoundingClientRect();
-      tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width * 1.2)));
-      ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height * 1.2)));
-      if (!raf) raf = requestAnimationFrame(apply);
-    });
-    hero.addEventListener("pointerleave", () => { tx = 0; ty = 0; portrait.style.transform = ""; if (!raf) raf = requestAnimationFrame(apply); });
-  }
-
   /* ---------- Boot ---------- */
   $("#year").textContent = new Date().getFullYear();
   renderCerts();
@@ -413,6 +386,5 @@
   initNav();
   initFilters();
   initCopy();
-  initHeroParallax();
   loadContributions();
 })();
