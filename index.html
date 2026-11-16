@@ -12,7 +12,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2321434d'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23eef3f4' text-anchor='middle'%3EEM%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -52,15 +52,10 @@
     <section class="hero" id="top">
       <div class="hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow hero-in" style="--d:0"><span class="eyebrow__line"></span>Hi, I'm Ernest · BSIT, Web Systems Technology</p>
-          <h1 class="hero__title" aria-label="I build practical web systems, from the database to the interface.">
-            <span class="w" style="--d:1">I</span> <span class="w" style="--d:2">build</span> <span class="w" style="--d:3">practical</span>
-            <span class="w" style="--d:4">web</span> <span class="w" style="--d:5">systems,</span>
-            <em><span class="w" style="--d:6">from</span> <span class="w" style="--d:7">the</span> <span class="w" style="--d:8">database</span>
-            <span class="w" style="--d:9">to</span> <span class="w" style="--d:10">the</span> <span class="w w--mark" style="--d:11">interface.</span></em>
-          </h1>
-          <p class="hero__lede hero-in" style="--d:12">A fourth-year IT student at Nueva Ecija University of Science and Technology, graduating in 2027. I write PHP and SQL and design clean, simple front-ends.</p>
-          <div class="hero__actions hero-in" style="--d:13">
+          <p class="eyebrow hero-in" style="--d:0"><span class="eyebrow__dot"></span>BSIT · Web Systems Technology</p>
+          <h1 class="hero__title hero-in" style="--d:1">Hi, I'm Ernest.<br><em>I build web systems.</em></h1>
+          <p class="hero__lede hero-in" style="--d:2">Fourth-year IT student at NEUST, graduating 2027. PHP, MySQL and clean front-ends.</p>
+          <div class="hero__actions hero-in" style="--d:3">
             <a class="btn btn--primary" href="#work">See my work</a>
             <a class="btn btn--ghost" href="mailto:montesernestwin21@gmail.com">
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -71,26 +66,38 @@
               GitHub
             </a>
           </div>
-          <dl class="facts hero-in" style="--d:14">
-            <div class="fact"><dt>Year</dt><dd>4th-year BSIT</dd></div>
-            <div class="fact"><dt>Focus</dt><dd>PHP · MySQL</dd></div>
-            <div class="fact"><dt>Training</dt><dd>7 IT certificates</dd></div>
-          </dl>
         </div>
 
-        <figure class="hero__visual hero-in" style="--d:4" aria-label="Portrait of Ernest Win Montes">
-          <div class="stage" id="stage">
-            <span class="stage__ring" aria-hidden="true"></span>
-            <span class="stage__back" aria-hidden="true"></span>
-            <div class="portrait">
-              <img src="assets/img/ernest-montes.jpg" alt="Portrait of Ernest Win Montes" width="640" height="640">
+        <figure class="device glass hero-in" style="--d:2" aria-label="Profile card">
+          <div class="device__top">
+            <span class="device__badge" aria-hidden="true">EM</span>
+            <span class="device__name">Ernest Win I. Montes</span>
+          </div>
+          <div class="device__face">
+            <img src="assets/img/ernest-montes.jpg" alt="Portrait of Ernest Win Montes" width="640" height="640">
+          </div>
+          <div class="dials">
+            <div class="dial">
+              <span class="dial__label">Class of</span>
+              <span class="dial__value">'27</span>
+            </div>
+            <div class="dial dial--ring" style="--p: 70">
+              <svg class="dial__ring" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="44" class="dial__track"/>
+                <circle cx="50" cy="50" r="44" class="dial__bar" pathLength="100"/>
+              </svg>
+              <span class="dial__label">Certificates</span>
+              <span class="dial__value">7</span>
+            </div>
+            <div class="dial">
+              <span class="dial__label">Open to work</span>
+              <span class="toggle" aria-hidden="true"><i></i></span>
             </div>
           </div>
-          <figcaption class="mono">Ernest Win I. Montes · NEUST '27</figcaption>
         </figure>
       </div>
 
-      <a class="scroll-cue hero-in" style="--d:15" href="#work"><span>Scroll</span><i aria-hidden="true"></i></a>
+      <a class="scroll-cue hero-in" style="--d:5" href="#work"><span>Projects</span><i aria-hidden="true"></i></a>
     </section>
 
     <!-- WORK -->

@@ -378,6 +378,51 @@
     });
   }
 
+  /* ---------- One scroll from the intro lands on Projects ---------- */
+  // Only when the whole intro fits on screen (laptops/desktops); on phones the
+  // intro is taller than the screen, so normal scrolling is kept there.
+  function initHeroJump() {
+    const hero = $(".hero");
+    const target = $("#work .section__head");
+    if (!hero || !target) return;
+    let busy = false;
+    const heroFits = () => hero.offsetHeight <= window.innerHeight + 4;
+    const targetTop = () => target.getBoundingClientRect().top + window.scrollY - 96;
+    const inIntro = () => heroFits() && window.scrollY < targetTop() - 40;
+    const go = () => {
+      if (busy) return;
+      busy = true;
+      window.scrollTo({ top: targetTop(), behavior: reduceMotion ? "auto" : "smooth" });
+      setTimeout(() => { busy = false; }, 900);
+    };
+
+    window.addEventListener("wheel", (e) => {
+      if (e.ctrlKey) return;                        // pinch-zoom on trackpads
+      if (busy) { e.preventDefault(); return; }     // swallow the rest of the flick
+      if (e.deltaY > 0 && inIntro()) { e.preventDefault(); go(); }
+    }, { passive: false });
+
+    let startY = null;
+    window.addEventListener("touchstart", (e) => { startY = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener("touchmove", (e) => {
+      if (startY !== null && startY - e.touches[0].clientY > 0 && inIntro()) e.preventDefault();
+    }, { passive: false });
+    window.addEventListener("touchend", (e) => {
+      if (startY !== null && startY - e.changedTouches[0].clientY > 30 && inIntro()) go();
+      startY = null;
+    });
+
+    document.addEventListener("keydown", (e) => {
+      const keys = ["ArrowDown", "PageDown", " ", "Spacebar"];
+      if (!keys.includes(e.key) || e.shiftKey || !inIntro()) return;
+      if (e.target.closest("input, textarea, select, button, [contenteditable]")) return;
+      e.preventDefault(); go();
+    });
+
+    // "See my work" and the scroll cue land in the same place
+    $$('a[href="#work"]').forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); busy = false; go(); }));
+  }
+
   /* ---------- Mobile menu ---------- */
   function initMenu() {
     const nav = $(".nav");
@@ -407,5 +452,6 @@
   initFilters();
   initCopy();
   initMenu();
+  initHeroJump();
   loadContributions();
 })();
