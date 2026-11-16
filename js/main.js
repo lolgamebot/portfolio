@@ -378,6 +378,26 @@
     });
   }
 
+  /* ---------- Mobile menu ---------- */
+  function initMenu() {
+    const nav = $(".nav");
+    const toggle = $(".nav__toggle");
+    if (!nav || !toggle) return;
+    const label = $(".nav__toggle-label", toggle);
+    const setOpen = (open) => {
+      nav.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", open);
+      label.textContent = open ? "Close" : "Menu";
+    };
+    toggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
+    $$(".nav__links a", nav).forEach((a) => a.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("click", (e) => { if (!nav.contains(e.target)) setOpen(false); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) { setOpen(false); toggle.focus(); }
+    });
+    window.matchMedia("(min-width: 721px)").addEventListener("change", (m) => { if (m.matches) setOpen(false); });
+  }
+
   /* ---------- Boot ---------- */
   $("#year").textContent = new Date().getFullYear();
   renderCerts();
@@ -386,5 +406,6 @@
   initNav();
   initFilters();
   initCopy();
+  initMenu();
   loadContributions();
 })();
